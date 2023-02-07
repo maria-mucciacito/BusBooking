@@ -1,0 +1,63 @@
+
+<!-- Header - set the background image for the header in the line below-->
+<header class="py-5 bg-image-full">
+    <div class="text-center m-5">
+        <h1 class=" fs-3 fw-bolder">Prenota ora il tuo viaggio!</h1>
+
+        <form class="m-5 " method="post" action="/searchbus" enctype="application/x-www-form-urlencoded">
+            <div class="row m-3 justify-content-center">
+                <div class="col-md-3">
+                    <label for="partenza" class="form-label">Da</label>
+                    <select id="partenza" class="form-select" required name="partenza">
+                        {{#each data}}
+                            <option>{{this.partenza}}</option>
+                         {{/each}}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="arrivo" class="form-label">A</label>
+                    <select id="arrivo" class="form-select" required name="arrivo">
+                        {{#each data}}
+                            <option>{{this.arrivo}}</option>
+                         {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class="row m-3 justify-content-center">
+                <div class="col-3">
+                    <label for="data" class="form-label">Data</label>
+                    <input type="date" class="form-control" id="data" required name="data">
+                </div>
+                <!--<div class="col-2">
+                    <label for="persone" class="form-label">Persone</label>
+                    <input type="number" class="form-control" id="persone" placeholder="Seleziona i posti" readonly required>
+                </div>-->
+            </div>
+            <div class="col-12 my-5">
+                <button  class="btn btn-secondary">Search</button>
+            </div>
+        </form>
+
+    </div>
+</header>
+
+<!-- Image element - set the background image for the header in the line below-->
+<div class="py-5 bg-image-full" style="background-image: url('https://www.kotak.com/content/dam/Kotak/digital-banking/insta-services/kaymall/1440X400-Bus.jpg')">
+    <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+    <div style="height: 20rem"></div>
+</div>
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2>Engaging Background Images</h2>
+                <p class="lead">The background images used in this template are sourced from Unsplash and are open
+                    source and free to use.</p>
+                <p class="mb-0">I can't tell you how many people say they were turned off from science because of a
+                    science teacher that completely sucked out all the inspiration and enthusiasm they had for the
+                    course.</p>
+            </div>
+        </div>
+    </div>
+</section>
