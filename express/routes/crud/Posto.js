@@ -30,8 +30,8 @@ const getPostoById =
 
 const createPosto = 
     (req,res)=>{
-        const {numero, status, prenotazione,bus } = req.body
-        db.query('INSERT INTO posto (numero, status, prenotazione,bus) VALUES ($1,$2,$3,$4) RETURNING id;', [numero, status, prenotazione,bus], (error,results)=>{
+        const {status, prenotazione,bus } = req.body
+        db.query('INSERT INTO posto (status, prenotazione,bus) VALUES ($1,$2,$3) RETURNING id;', [status, prenotazione,bus], (error,results)=>{
             if(error){
                 throw error;
             } else {
@@ -44,9 +44,9 @@ const createPosto =
 const updatePosto = 
     (req,res)=>{
         var id = parseInt(req.params.id)
-        const {numero, status, prenotazione, bus } = req.body
-        db.query('UPDATE posto SET numero=$1, status=$2, prenotazione=$3, bus=$4 WHERE id=$5;',
-        [numero, status, prenotazione,bus],
+        const { status, prenotazione, bus } = req.body
+        db.query('UPDATE posto SET status=$1, prenotazione=$2, bus=$3 WHERE id=$4;',
+        [status, prenotazione,bus],
         (error,results)=>{
             if(error){
                 throw error

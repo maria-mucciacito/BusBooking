@@ -77,6 +77,7 @@ app.get('/api/prenotazione/:id', PrenotazioneRouter.getPrenotazioneById);
 app.post('/api/addprenotazione', PrenotazioneRouter.createPrenotazione);
 app.post('/api/prenotazione/:id',PrenotazioneRouter.updatePrenotazione);
 app.delete('/api/prenotazione/delete/:id', PrenotazioneRouter.deletePrenotazione);
+app.post('/api/prenotazione/code', PrenotazioneRouter.getPrenotazioneByCode);
 
 //api for model utente
 app.get('/api/utente', UtenteRouter.getUtente);

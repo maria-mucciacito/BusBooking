@@ -9,34 +9,25 @@
         </div>
         <div class="row my-3 justify-content-center">
             <div class="col-2">
-                <div class="outer-seat div-inline" id="1" onclick="addOrRemovePersone(this.id)">1</div>
-                <div class="outer-seat div-inline" id="2" onclick="addOrRemovePersone(this.id)">2</div>
-                <div class="outer-seat div-inline" id="3" onclick="addOrRemovePersone(this.id)">3</div>
-                <div class="outer-seat div-inline" id="4" onclick="addOrRemovePersone(this.id)">4</div>
-                <div class="outer-seat div-inline" id="5" onclick="addOrRemovePersone(this.id)">5</div>
-                <br class="clearBoth" />
-                <div class="outer-seat div-inline" id="6" onclick="addOrRemovePersone(this.id)">6</div>
-                <div class="outer-seat div-inline" id="7" onclick="addOrRemovePersone(this.id)">7</div>
-                <div class="outer-seat div-inline" id="8" onclick="addOrRemovePersone(this.id)">8</div>
-                <div class="outer-seat div-inline" id="9" onclick="addOrRemovePersone(this.id)">9</div>
-                <div class="outer-seat div-inline" id="10" onclick="addOrRemovePersone(this.id)">10</div>
-                <br class="clearBoth" />
-                <div class="outer-seat div-inline" id="11" onclick="addOrRemovePersone(this.id)">11</div>
-                <div class="outer-seat div-inline" id="12" onclick="addOrRemovePersone(this.id)">12</div>
-                <div class="outer-seat div-inline" id="13" onclick="addOrRemovePersone(this.id)">13</div>
-                <div class="outer-seat div-inline" id="14" onclick="addOrRemovePersone(this.id)">14</div>
-                <div class="outer-seat div-inline" id="15" onclick="addOrRemovePersone(this.id)">15</div>
-                <br class="clearBoth" />
-                <div class="outer-seat div-inline" id="16" onclick="addOrRemovePersone(this.id)">16</div>
-                <div class="outer-seat div-inline" id="17" onclick="addOrRemovePersone(this.id)">17</div>
-                <div class="outer-seat div-inline" id="18" onclick="addOrRemovePersone(this.id)">18</div>
-                <div class="outer-seat div-inline" id="19" onclick="addOrRemovePersone(this.id)">19</div>
-                <div class="outer-seat div-inline" id="20" onclick="addOrRemovePersone(this.id)">20</div>
-                <br class="clearBoth" />
+                {{#each posti}}
+                    {{#if this.status }}
+                        <div class="outer-seat div-inline" id={{this.id}} style="pointer-events: none; background-color: red;" aria-disabled="true">{{this.id}}</div>
+                        <!--<br class="clearBoth" />-->
+                    {{else}}
+                        <div class="outer-seat div-inline" id={{this.id}} onclick="addOrRemovePersone(this.id)">{{this.id}}</div>
+                    {{/if}}
+                {{/each}}
             </div>
         </div>
-        <div class="col-12 my-5">
-            <button class="btn btn-secondary" onmouseover="postiScelti()">Select</button>
-        </div>
+        <form method="post" action="" enctype="application/x-www-form-urlencoded">
+            <div class="col-12 my-5">
+                <div style="display: none;">
+                    <input type="number" name="tratta" id="tratta" class="form-control" value={{tratta}}>
+                    <input type="number" name="bus" id="bus" class="form-control" value={{bus}}>
+                    <input type="text" name="posti" id="posti" class="form-control" value="postiScelti()">
+                </div>
+                <button class="btn btn-secondary" >Select</button>
+            </div>
+        </form>
     </div>
 </header>
