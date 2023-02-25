@@ -17,7 +17,7 @@ const getTratte =
 const getTrattaById = 
     (req,res)=>{
         var id = parseInt(req.params.id);
-        db.query('SELECT * FROM tratta WHERE id=$1;',[id], (error,results)=>{
+        db.query("SELECT *,to_char(data, 'dd.mm.YYYY') FROM tratta WHERE id=$1;",[id], (error,results)=>{
             if(error){
                 throw error;
             } else {

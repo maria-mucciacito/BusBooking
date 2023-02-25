@@ -29,14 +29,15 @@ const getPrenotazioneById = (req, res) => {
 
 const getPrenotazioneByCode = (req, res) => {
   var code = req.body;
+  console.log(code)
   db.query(
     "SELECT * FROM prenotazione WHERE code=$1;",
-    [code],
+    [code.code],
     (error, results) => {
       if (error) {
         throw error;
       } else {
-        res.render("dettagliprenotazione", { data: results.rows });
+        res.send(results.rows);
       }
     }
   );
@@ -51,7 +52,7 @@ const createPrenotazione = (req, res) => {
       if (error) {
         throw error;
       } else {
-        res.status(201).send("Prenotazione added with ID: " + results.rows);
+        res.status(201).send(results.rows);
       }
     }
   );

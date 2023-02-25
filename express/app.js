@@ -7,11 +7,8 @@ var hbs = require('hbs');
 const cors = require('cors');
 var bodyParser = require('body-parser');
 
-var indexRouter = require('./routes/index');
-var registerRouter = require('./routes/formutente');
 var searchBusRouter = require('./routes/searchbus');
 var mostraPostiRouter = require('./routes/mostraposti');
-var confermaPrenotazioneRouter = require('./routes/confermaprenotazione');
 
 // api controller
 var BusRouter = require('./routes/crud/Bus');
@@ -43,12 +40,8 @@ app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
 
 // utility (rendering page)
-app.use('/', indexRouter);
-app.use('/register',registerRouter);
 app.use('/searchbus',searchBusRouter);
 app.use('/mostraposti',mostraPostiRouter);
-app.use('/confermaprenotazione', confermaPrenotazioneRouter);
-
 
 //api for model bus
 app.get('/api/bus', BusRouter.getBus);
@@ -77,7 +70,7 @@ app.get('/api/prenotazione/:id', PrenotazioneRouter.getPrenotazioneById);
 app.post('/api/addprenotazione', PrenotazioneRouter.createPrenotazione);
 app.post('/api/prenotazione/:id',PrenotazioneRouter.updatePrenotazione);
 app.delete('/api/prenotazione/delete/:id', PrenotazioneRouter.deletePrenotazione);
-app.post('/api/prenotazione/code', PrenotazioneRouter.getPrenotazioneByCode);
+app.post('/api/codeprenotazione', PrenotazioneRouter.getPrenotazioneByCode);
 
 //api for model utente
 app.get('/api/utente', UtenteRouter.getUtente);
@@ -102,5 +95,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000);
+app.listen(3001);
 module.exports = app;

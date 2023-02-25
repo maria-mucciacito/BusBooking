@@ -33,7 +33,7 @@ const createUtente =
             if(error){
                 throw error;
             } else {
-                res.status(201).send("Utente added with ID: " + results.rows);
+                res.status(201).send(results.rows);
             }
             
         })

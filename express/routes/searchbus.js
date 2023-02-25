@@ -14,7 +14,7 @@ router.post("/",function (req, res) {
         throw error;
       } else {
         console.log(results.rows)
-        res.render("listofbus",{result:results.rows});
+        res.send(results.rows)
 
       }
     }
